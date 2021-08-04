@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const bodyParser = require('body-parser');
 
 const UserModel = require('./model/model');
 
@@ -16,7 +15,8 @@ const secureRoute = require('./routes/secure-routes');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use('/', routes);
 
